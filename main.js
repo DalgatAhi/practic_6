@@ -1,53 +1,37 @@
-"use strict"
+'use strict';
 
-// Задание 1
-console.log(document.querySelector('div'));
-console.log(document.querySelector('ul'));
-console.log(document.querySelector('ul > li:last-child'));
+//задание 1
+console.log(document.body.firstElementChild);
+console.log(document.body.children[1]);
+console.log(document.body.children[1].lastElementChild);
 
-
-// Задание 2
-let ul = document.querySelectorAll('ul > li');
-for (let li of ul) {
-    console.log(li.innerHTML);
-    li.classList.add('list-item');
-    console.log(li.className);
+//задание 2
+let elems = document.querySelectorAll('li');
+for(let elem of elems){
+    elem.classList.add('list-item');
 }
+console.log(elems);
 
-// Задание 3
-let num = +prompt('Введите число');
 
-for (let i = 0; i < num; i++) {
-    let body = document.querySelector('body');
+//задание 3
+let a = prompt('Введите количество блоков');
+
+for(let i = 1;i <= a; i++){
     let div = document.createElement('div');
-    div.className = 'square';
-    div.style.background = 'purple';
-    div.style.width = '100px';
-    div.style.height = '100px';
-    div.style.margin = '20px'
-    body.append(div);
+    div.className = 'block';
+    div.innerHTML = `${i}-ый блок`;
+    document.body.append(div);
 }
 
-// Задание 4
-let body = document.querySelector('body');
+//задание 4
 let form = document.createElement('form');
-let inputName = document.createElement('input');
-let inputEmail = document.createElement('input');
+let inp = document.createElement('input')
+let inp2 = document.createElement('input')
 let btn = document.createElement('button');
-form.style.display = 'flex';
-form.style.flexDirection = 'column';
-form.style.gap = '20px';
-form.style.width = '300px';
+btn.className = 'btn';
 
-inputName.placeholder = 'Введите имя';
-inputName.style.padding = '10px';
-
-inputEmail.placeholder = 'Введите email';
-inputEmail.style.padding = '10px';
-
+document.body.append(form);
+document.body.lastElementChild.append(inp, inp2, btn);
 btn.innerHTML = 'Отправить';
-btn.style.padding = '10px';
-
-
-form.append(inputName, inputEmail, btn);
-body.append(form);
+inp.placeholder = 'Имя';
+inp2.placeholder = 'Email';
